@@ -1,5 +1,6 @@
 package com.nevermind.bu.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Category {
     @Column
     private String description;
 
+    @JsonBackReference
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.ALL)
     private List<Product> products;
 }

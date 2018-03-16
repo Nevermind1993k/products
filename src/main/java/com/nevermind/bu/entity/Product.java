@@ -1,5 +1,6 @@
 package com.nevermind.bu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -31,6 +32,7 @@ public class Product {
     @Column
     private double price;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 }
